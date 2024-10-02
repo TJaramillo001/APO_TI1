@@ -1,0 +1,5 @@
+package model;
+
+public enum NameIssue {
+    FALTAHOSPITAL, FALTAESCUELA, FALTAAGUA, FALTAALIMENTACION
+}
