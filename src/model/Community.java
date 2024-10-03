@@ -9,6 +9,7 @@ public class Community{
     private String celRepresentative;
     private int population;
     private NameIssue nameIssue;
+    public int length;
 
     public Community(String communityName, CommunityType communityType, String nameRepresentative, String celRepresentative, int population, NameIssue nameIssue){
         this.communityName=communityName;

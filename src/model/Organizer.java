@@ -1,6 +1,6 @@
 package model;
 
-import model.Controller;
+import model.*;
 
 public class Organizer{
     private String organizerName;

@@ -8,7 +8,7 @@
 
     public ClimateAnalysis(double temperature, double humidity){
         this.temperature=temperature;
-        this.humidity=humidity,
+        this.humidity=humidity;
     }
     //Getters
     public double getTemperature(){
