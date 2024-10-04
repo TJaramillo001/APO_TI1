@@ -28,5 +28,8 @@ public class Route{
         return routeEncounterPoint;
     }
 
+    public String getRouteInfo(){
+        return "Route :"+routeName+".\nEncounters at: "+routeEncounterPoint+".\nStart Time: "+routeStartTime+".\n End Time: "+routeEndTime;
+    }
     //Route rutaLadera = new Route("....")
 }

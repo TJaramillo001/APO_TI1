@@ -22,7 +22,7 @@ public class Place{
         this.dateOfIna=dateOfIna;
 
         this.species=new Species[50];
-        this.comms=new Community[10]; //10 es un buen límite para comunidades ya que no es dado explicitamente
+        this.comms= new Community[1]
     }
     //Getters
     public String getNamePlace(){

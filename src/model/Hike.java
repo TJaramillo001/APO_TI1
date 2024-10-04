@@ -19,11 +19,5 @@ public class Hike{
     public int getParticipants(){
         return participants;
     }
-    public static double busesNeeded(int guides, int participants){
-        int totalPeople = guides+participants;
-        double numBus=(totalPeople/25);
-        int necessaryBus=(int)(Math.ceil(numBus));
-
-        return necessaryBus;
-    }
+    
 }

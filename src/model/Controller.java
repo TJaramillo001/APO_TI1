@@ -9,17 +9,49 @@ public class Controller {
     private int communityCount;
     private Species[] species;
     private Community[] communities;
+    private int hikeCount=0;
     public Controller(){
-        this.places=new Place[10]; //No se da un límite de lugares, entonces se asume que 10 es un valor máximo.
+        this.places=new Place[30]; 
         this.placesCount=0;
         Route rLadera = new Route("Ladera","7:00am","4:00pm","Bulevar del Rio");
         Route rFarallones = new Route("Farallones","6:40am","4:00pm","Calle 16 - Universidad del Valle");
         Route rOriente = new Route("Oriente","7:00am","4:00pm","Bulevar del Rio");
-        Organizer Tomas = new Organizer("Tomas","admin");
+        Organizer Tomas = new Organizer("Tomas","1032876581");
     }
     //PARTE 1
-    //public void scheduleHike
-    //showMetData
+    public void scheduleHike(String routeName){
+        switch(routeName.toUpperCase()){
+            case "FARALLONES":
+                return rFarallones.getRouteInfo();
+                break;
+            case "LADERA":
+                return rLadera.getRouteInfo();
+                break;
+            case "ORIENTE":
+                return rOriente.getRouteInfo();
+                break;
+            default:
+                return "Sorry, that route doesn't exist";
+                break;
+        }
+    }
+    // register volunteer?
+    public showMetData(double temp, double humidity){
+        if(temp<10 || temp>40){
+            return "Please enter a valid temperature value.";
+        } else if(humidity<0 || humidity>100){
+            return "Please enter a valid percentage for the humidity"
+        } else{
+            return showMeterologicalData(temp, humidity);
+        }
+    }
+    public double busesNeeded(int guides, int participants){
+        int totalPeople = guides+participants;
+        double numBus=(totalPeople/25);
+        int necessaryBus=(int)(Math.ceil(numBus));
+
+        return necessaryBus;
+    }
     //Parte 2
     public void createPlace(String namePlace, String department, double size, double requiredBudget, String picOfLoc, String dateOfIna){
         places[placesCount] = new Place(namePlace, department, size, requiredBudget, picOfLoc, dateOfIna);
@@ -96,9 +128,10 @@ public class Controller {
         }
     }
 
-    public boolean modifySpecies(String speciesName, SpeciesType newSpeciesType, String newSpeciesPicture, int newSpeciesPopulation){
+    public boolean modifySpecies(String speciesName, String newSpeciesName, SpeciesType newSpeciesType, String newSpeciesPicture, int newSpeciesPopulation){
         for(Species species:this.species){
             if(species.getSpeciesName().equalsIgnoreCase(speciesName)){
+                species.setSpeciesName(newSpeciesName);
                 species.setSpeciesType(newSpeciesType);
                 species.setSpeciesPicture(newSpeciesPicture);
                 species.setSpeciesPopulation(newSpeciesPopulation);
@@ -107,21 +140,40 @@ public class Controller {
         }
         return false;
 
-    public Community commIssues(){
-        for(int i=0;i<communityCount;i++){
-            if(communities[i].getCommunityType().equals(FALTAHOSPITAL))
-        }
-    }    
-    }
-    /*
-     * public Place findPlace(String namePlace){
-        for(int i=0;i<placesCount;i++){
-            if(places[i].getNamePlace().equalsIgnoreCase(namePlace)){
-                return places[i];
+    public Community commIssues() {
+
+        for (int i = 0; i < communityCount; i++) {
+            if (communities[i].getNameIssue().equals(NameIssue.FALTAHOSPITAL)) {
+                System.out.println("The community " + communities[i] + " is in need of a hospital");
+            } else if (communities[i].getNameIssue().equals(NameIssue.FALTAESCUELA)) {
+                System.out.println("The community" + communities[i] + " is in need of a school");
             }
         }
-        return null;
+        
+        // Return an appropriate Community object or null if there's nothing to return
+        return null; // or return a specific Community object if applicable
     }
+    public String maxSpecies(){
+        for (int i=o; i<places.length;i++){
+            String currentPlace=places[i].getNamePlace();
+            int currentSpeciesCount=0;
+
+            for(int j=0; j<species.length; j++){
+                if(!species[j]=null){
+                    currentSpeciesCount++
+                }
+            }
+            if(currentSpeciesCount>numMaxSpecies){
+                numMaxSpecies=currentSpeciesCount;
+                maxPlace=currentPlace;
+            }
+            
+        }
+        return "The place with most species is "+maxPlace+" with a total of "+numMaxSpecies+" species.";
+    }
+    }
+    /*
+     *  
      */
 
 }   
