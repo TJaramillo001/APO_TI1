@@ -1,7 +1,5 @@
 package model;
 
-import model.*;
-
 public class Community{
     private String communityName;
     private CommunityType communityType;
@@ -9,8 +7,15 @@ public class Community{
     private String celRepresentative;
     private int population;
     private NameIssue nameIssue;
-    public int length;
-
+    /**
+     * Description: This is the constructor class for the communities. It will store all community information.
+     * @param String communityName : This value represents the name of the community
+     * @param CommunityType communityType : This enum validates that the community can be catalogued
+     * @param String nameRepresentative : This value represents the name of the community representative to the government
+     * @param String celRepresentative : This is the community representatives contact phone number.
+     * @param int population : This is the given population of the community
+     * @param NameIssue nameIssue : This enum logs an issue that each community has.
+     */
     public Community(String communityName, CommunityType communityType, String nameRepresentative, String celRepresentative, int population, NameIssue nameIssue){
         this.communityName=communityName;
         this.communityType=communityType;
@@ -38,19 +43,6 @@ public class Community{
     public NameIssue getNameIssue(){
         return nameIssue;
     }
-
-    //SETTERS
-    public void setNameRepresentative(String nameRepresentative){
-        this.nameRepresentative=nameRepresentative;
-    }
-    public void setCelRepresentative(String celRepresentative){
-        this.celRepresentative=celRepresentative;
-    }
-    public void setPopulation(int population){
-        this.population=population;
-    }
-    public void setNameIssue(NameIssue nameIssue){
-        this.nameIssue=nameIssue;
-    }
+    //We dont need setters since this information won't be modified
     
 }

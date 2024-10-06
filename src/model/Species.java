@@ -1,13 +1,17 @@
 package model;
 
-import model.*;
-
 public class Species{
     private String speciesName;
     private SpeciesType speciesType;
     private String speciesPicture;
     private int speciesPopulation;
-
+    /**
+     * Description: This is the Species constructor class. It will store all species registered.
+     * @param String speciesName : This is the name of the species to be registered
+     * @param SpeciesType speciesType : This type enum validates whether its a Flora or Fauna
+     * @param String speciesPicture : This, as in the case with the place, will take in the file route of an image
+     * @param int speciesPopulation : This is the population number of this specimen.
+     */
     public Species(String speciesName, SpeciesType speciesType, String speciesPicture, int speciesPopulation){
         this.speciesName=speciesName;
         this.speciesType=speciesType;
@@ -27,7 +31,7 @@ public class Species{
     public int getSpeciesPopulation(){
         return speciesPopulation;
     }
-    //Setters
+    //Setters to modify the species
     public void setSpeciesName(String speciesName){
         this.speciesName=speciesName;
     }
@@ -40,6 +44,4 @@ public class Species{
     public void setSpeciesPopulation(int speciesPopulation){
         this.speciesPopulation=speciesPopulation;
     }
-
-    //Place with most species?
 }
